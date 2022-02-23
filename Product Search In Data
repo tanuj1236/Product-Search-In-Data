@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <input type="number" id="serach1" placeholder="Search For Price">
+    <input type="text" id="serach2" placeholder="Searchh For Company Name">
+    <input type="text" id="serach3" placeholder="Search For Product Name">
+    <button onclick="btn()">submit</button>
+    <span id="msg"></span>
+</head>
+<body>
+        <script>
+        
+        var employee=[
+            { Cname:'Samsung',Price:5000,Pname:'Mobile'},
+            { Cname:'Samsung',Price:13000,Pname:'Laptop'},
+            { Cname:'Samsung',Price:182300,Pname:'Tv'},
+            { Cname:'Samsung',Price:538900,Pname:'Ac'},
+
+            { Cname:'vivo',Price:6000,Pname:'Mobile'},
+            { Cname:'vivo',Price:63000,Pname:'Laptop'},
+            { Cname:'vivo',Price:582300,Pname:'Tv'},
+            { Cname:'vivo',Price:58900,Pname:'Ac'},
+
+            { Cname:'oppo',Price:7000,Pname:'Mobile'},
+            { Cname:'oppo',Price:3000,Pname:'Laptop'},
+            { Cname:'oppo',Price:12300,Pname:'Tv'},
+            { Cname:'oppo',Price:58900,Pname:'Ac'},
+
+            { Cname:'Apple',Price:9900,Pname:'Mobile'},
+            { Cname:'Apple',Price:20000,Pname:'Laptop'},
+            { Cname:'Apple',Price:82300,Pname:'Tv'},
+            { Cname:'Apple',Price:338900,Pname:'Ac'},
+            ]
+            function btn()
+            {
+                let tbl="<table border='1' width='500'><tr><th>Name</th><th>price</th><th>Pname</th></tr>"
+                var x= document.getElementById("serach1").value;
+                var y= document.getElementById("serach2").value;
+                var z= document.getElementById("serach3").value;
+                 
+                 var filterData=employee.filter(function(mydata){
+                   if(mydata.Price < x)
+                   {
+                       return x;
+                   }
+                    else if(mydata.Cname == y)
+                   {
+                       return y;
+                   }
+                   else if(mydata.Pname == z)
+                   {
+                       return z;
+                   }
+                   else
+                       {
+
+                       }
+
+                        })
+
+                    filterData.forEach(function(getValue)
+                    {
+                        tbl+=`<tr><th> ${getValue.Cname}</th><th> ${getValue.Price}
+                        </th><th>${getValue.Pname}</th> </tr>`
+                    })
+                    document.getElementById("msg").innerHTML=tbl;
+            }      
+        </script>
+</body>
+</html>
